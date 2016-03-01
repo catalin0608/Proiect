@@ -1,0 +1,31 @@
+Embedded:
+
+1.       Add code in GIT repository
+
+2.       Refactor the code to a modular manner
+
+3.       Add Timer for reading accelerometer data to buffer
+
+4.       Add Timer for sending the data from buffer over UART
+
+5.       Add possibility of configuring the Timer frequency over UART
+
+6.       Investigate sleep mode for MCU and Accelerometer
+
+ 
+
+WPF GUI:
+
+1.       Add code in GIT repository
+
+2.       Add dynamic allocation of dictionaries used for charting
+
+3.       Add option to show only specific dictionaries
+
+ 
+
+Documentation:
+
+1.       Find Title for the project
+
+2.       Make presentation with Saguaro template for showing what the system will do and how the system is going to be used
