@@ -1,0 +1,267 @@
+******************************************************************************
+                  TI ARM Linker PC v5.2.5                      
+******************************************************************************
+>> Linked Tue Feb 23 14:34:45 2016
+
+OUTPUT FILE NAME:   <acelleratieserial.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000084d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  MAIN                  00000000   00040000  00000b3c  0003f4c4  R  X
+  INFO                  00200000   00004000  00000000  00004000  R  X
+  SRAM_CODE             01000000   00010000  00000000  00010000  RW X
+  SRAM_DATA             20000000   00010000  0000024c  0000fdb4  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000b40   00000b40    r-x
+  00000000    00000000    00000140   00000140    r-- .intvecs
+  00000140    00000140    0000095c   0000095c    r-x .text
+  00000a9c    00000a9c    00000068   00000068    r-- .const
+  00000b08    00000b08    00000038   00000038    r-- .cinit
+20000000    20000000    0000004c   00000000    rw-
+  20000000    20000000    0000004c   00000000    rw- .data
+2000fe00    2000fe00    00000200   00000000    rw-
+  2000fe00    2000fe00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000140     
+                  00000000    00000140     msp432_startup_ccs.obj (.intvecs:retain)
+
+.text      0    00000140    0000095c     
+                  00000140    00000488     main.obj (.text)
+                  000005c8    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00000664    00000094     msp432p4xx_driverlib.lib : uart.o (.text:UART_initModule)
+                  000006f8    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  00000772    00000002     --HOLE-- [fill = 0]
+                  00000774    0000006c                                   : autoinit.obj (.text)
+                  000007e0    0000006a                                   : copy_decompress_rle.obj (.text)
+                  0000084a    00000002     --HOLE-- [fill = 0]
+                  0000084c    00000050                                   : boot.obj (.text)
+                  0000089c    0000004c     msp432p4xx_driverlib.lib : gpio.o (.text:GPIO_setAsPeripheralModuleFunctionInputPin)
+                  000008e8    0000004c                              : i2c.o (.text:I2C_masterSendSingleByte)
+                  00000934    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : cpy_tbl.obj (.text)
+                  00000980    00000044                                   : exit.obj (.text)
+                  000009c4    00000030     msp432p4xx_driverlib.lib : i2c.o (.text:I2C_masterReceiveSingleByte)
+                  000009f4    00000024                              : cs.o (.text:CS_setDCOCenteredFrequency)
+                  00000a18    00000024                              : uart.o (.text:UART_transmitData)
+                  00000a3c    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00000a54    00000014                                   : _lock.obj (.text)
+                  00000a68    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00000a76    0000000c     msp432p4xx_driverlib.lib : uart.o (.text:UART_enableModule)
+                  00000a82    0000000c     msp432_startup_ccs.obj (.text)
+                  00000a8e    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  00000a94    00000004     msp432p4xx_driverlib.lib : i2c.o (.text:I2C_setSlaveAddress)
+                  00000a98    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.obj (.text)
+
+.const     0    00000a9c    00000068     
+                  00000a9c    00000030     msp432p4xx_driverlib.lib : gpio.o (.const:GPIO_PORT_TO_BASE)
+                  00000acc    00000024     main.obj (.const:uartConfig)
+                  00000af0    00000014     main.obj (.const)
+
+.cinit     0    00000b08    00000038     
+                  00000b08    00000028     (.cinit..data.load) [load image, compression = rle]
+                  00000b30    00000008     (__TI_handler_table)
+                  00000b38    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.data      0    20000000    0000004c     UNINITIALIZED
+                  20000000    00000038     main.obj (.data)
+                  20000038    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  20000040    00000008                                   : exit.obj (.data)
+                  20000048    00000004                                   : stkdepth_vars.obj (.data)
+
+.TI.persistent 
+*          0    20000000    00000000     UNINITIALIZED
+
+.stack     0    2000fe00    00000200     UNINITIALIZED
+                  2000fe00    00000200     --HOLE--
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00000b38 records: 1, size/record: 8, table size: 8
+	.data: load addr=00000b08, load size=00000028 bytes, run addr=20000000, run size=0000004c bytes, compression=rle
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000b30 records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                      
+-------   ----                                      
+20000007  ACCEL_CONFIG                              
+00000981  C$$EXIT                                   
+0000035b  CONVERSION                                
+000009f5  CS_setDCOCenteredFrequency                
+0000089d  GPIO_setAsPeripheralModuleFunctionInputPin
+000009c5  I2C_masterReceiveSingleByte               
+000008e9  I2C_masterSendSingleByte                  
+00000a95  I2C_setSlaveAddress                       
+00000141  INIT_MPU6050_MODULE                       
+000001b7  INIT_UART_MODULE                          
+20000002  MPU6050_A_X_HIGH                          
+20000001  MPU6050_A_X_LOW                           
+20000004  MPU6050_A_Y_HIGH                          
+20000003  MPU6050_A_Y_LOW                           
+20000006  MPU6050_A_Z_HIGH                          
+20000005  MPU6050_A_Z_LOW                           
+000001db  MPU6050_GET_X                             
+0000025b  MPU6050_GET_Y                             
+000002db  MPU6050_GET_Z                             
+000004fd  PRINT                                     
+20000000  PWR_MGMT_1                                
+UNDEFED   SHT$$INIT_ARRAY$$Base                     
+UNDEFED   SHT$$INIT_ARRAY$$Limit                    
+00000a77  UART_enableModule                         
+00000665  UART_initModule                           
+00000a19  UART_transmitData                         
+4000480c  WDTCTL_SYM                                
+20010000  __STACK_END                               
+00000200  __STACK_SIZE                              
+00000b38  __TI_CINIT_Base                           
+00000b40  __TI_CINIT_Limit                          
+00000b30  __TI_Handler_Table_Base                   
+00000b38  __TI_Handler_Table_Limit                  
+00000775  __TI_auto_init                            
+20000040  __TI_cleanup_ptr                          
+00000a69  __TI_decompress_none                      
+00000a8f  __TI_decompress_rle24                     
+20000044  __TI_dtors_ptr                            
+00000000  __TI_static_base__                        
+000006f9  __aeabi_memclr                            
+000006f9  __aeabi_memclr4                           
+000006f9  __aeabi_memclr8                           
+000005c9  __aeabi_memcpy                            
+000005c9  __aeabi_memcpy4                           
+000005c9  __aeabi_memcpy8                           
+000006fb  __aeabi_memset                            
+000006fb  __aeabi_memset4                           
+000006fb  __aeabi_memset8                           
+ffffffff  __binit__                                 
+ffffffff  __c_args__                                
+2000fe00  __stack                                   
+00000a3d  _args_main                                
+0000084d  _c_int00                                  
+20000038  _lock                                     
+00000a63  _nop                                      
+00000a5b  _register_lock                            
+00000a55  _register_unlock                          
+00000a99  _system_pre_init                          
+2000003c  _unlock                                   
+00000985  abort                                     
+ffffffff  binit                                     
+00000935  copy_in                                   
+0000098d  exit                                      
+00000af0  i2cConfig                                 
+00000000  interruptVectors                          
+00000571  main                                      
+20000048  main_func_sp                              
+000005c9  memcpy                                    
+00000701  memset                                    
+000003ed  print                                     
+000003a9  printCaracter                             
+000003bb  printString                               
+000004b5  printxyz                                  
+00000acc  uartConfig                                
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                      
+-------   ----                                      
+00000000  __TI_static_base__                        
+00000000  interruptVectors                          
+00000141  INIT_MPU6050_MODULE                       
+000001b7  INIT_UART_MODULE                          
+000001db  MPU6050_GET_X                             
+00000200  __STACK_SIZE                              
+0000025b  MPU6050_GET_Y                             
+000002db  MPU6050_GET_Z                             
+0000035b  CONVERSION                                
+000003a9  printCaracter                             
+000003bb  printString                               
+000003ed  print                                     
+000004b5  printxyz                                  
+000004fd  PRINT                                     
+00000571  main                                      
+000005c9  __aeabi_memcpy                            
+000005c9  __aeabi_memcpy4                           
+000005c9  __aeabi_memcpy8                           
+000005c9  memcpy                                    
+00000665  UART_initModule                           
+000006f9  __aeabi_memclr                            
+000006f9  __aeabi_memclr4                           
+000006f9  __aeabi_memclr8                           
+000006fb  __aeabi_memset                            
+000006fb  __aeabi_memset4                           
+000006fb  __aeabi_memset8                           
+00000701  memset                                    
+00000775  __TI_auto_init                            
+0000084d  _c_int00                                  
+0000089d  GPIO_setAsPeripheralModuleFunctionInputPin
+000008e9  I2C_masterSendSingleByte                  
+00000935  copy_in                                   
+00000981  C$$EXIT                                   
+00000985  abort                                     
+0000098d  exit                                      
+000009c5  I2C_masterReceiveSingleByte               
+000009f5  CS_setDCOCenteredFrequency                
+00000a19  UART_transmitData                         
+00000a3d  _args_main                                
+00000a55  _register_unlock                          
+00000a5b  _register_lock                            
+00000a63  _nop                                      
+00000a69  __TI_decompress_none                      
+00000a77  UART_enableModule                         
+00000a8f  __TI_decompress_rle24                     
+00000a95  I2C_setSlaveAddress                       
+00000a99  _system_pre_init                          
+00000acc  uartConfig                                
+00000af0  i2cConfig                                 
+00000b30  __TI_Handler_Table_Base                   
+00000b38  __TI_CINIT_Base                           
+00000b38  __TI_Handler_Table_Limit                  
+00000b40  __TI_CINIT_Limit                          
+20000000  PWR_MGMT_1                                
+20000001  MPU6050_A_X_LOW                           
+20000002  MPU6050_A_X_HIGH                          
+20000003  MPU6050_A_Y_LOW                           
+20000004  MPU6050_A_Y_HIGH                          
+20000005  MPU6050_A_Z_LOW                           
+20000006  MPU6050_A_Z_HIGH                          
+20000007  ACCEL_CONFIG                              
+20000038  _lock                                     
+2000003c  _unlock                                   
+20000040  __TI_cleanup_ptr                          
+20000044  __TI_dtors_ptr                            
+20000048  main_func_sp                              
+2000fe00  __stack                                   
+20010000  __STACK_END                               
+4000480c  WDTCTL_SYM                                
+ffffffff  __binit__                                 
+ffffffff  __c_args__                                
+ffffffff  binit                                     
+UNDEFED   SHT$$INIT_ARRAY$$Base                     
+UNDEFED   SHT$$INIT_ARRAY$$Limit                    
+
+[74 symbols]
